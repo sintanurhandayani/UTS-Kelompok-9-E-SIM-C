@@ -1,0 +1,222 @@
+:root{
+  /* Light mode colors (as requested) */
+  --bg: #FFF9F2; /* soft cream */
+  --surface: #FFFFFF; /* cards */
+  --text: #20233A; /* deep navy */
+  --muted: #62677A; /* slate */
+  --primary: #6C4AB6; /* royal purple */
+  --accent1: #F26B7A; /* coral pink */
+  --accent2: #F4C95D; /* bright yellow */
+  --accent3: #35C2B5; /* turquoise */
+
+  --radius: 12px;
+  --container: 1100px;
+  --shadow: 0 6px 18px rgba(32,35,58,0.08);
+  --glass: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+}
+
+/* Dark mode variables */
+body.dark {
+  --bg: #17152A;
+  --surface: #24213B;
+  --text: #FFF9F2;
+  --muted: #D8D5E5;
+  --primary: #A98BE8;
+  --accent1: #FF8995;
+  --accent2: #F7D477;
+  --accent3: #5DDED0;
+  --shadow: 0 6px 18px rgba(0,0,0,0.5);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+  transition:background .4s ease,color .4s ease;
+}
+
+.container{
+  max-width:var(--container);
+  margin:0 auto;
+  padding:2rem;
+}
+
+/* Header / Navbar */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:30;
+  background:linear-gradient(90deg, rgba(108,74,182,0.98), rgba(108,74,182,0.90));
+  color:var(--surface);
+  box-shadow:0 4px 18px rgba(16,16,30,0.12);
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
+.brand{
+  display:flex;
+  flex-direction:column;
+  text-decoration:none;
+  color:var(--surface);
+}
+.brand-name{
+  font-family: "Poppins", sans-serif;
+  font-weight:700;
+  font-size:1rem;
+}
+.brand-role{
+  font-size:0.78rem;
+  opacity:0.92;
+}
+
+/* Nav */
+.nav{margin-left:auto; display:flex; align-items:center}
+.nav-list{list-style:none; display:flex; gap:0.6rem; margin:0; padding:0}
+.nav-link{
+  color:var(--surface);
+  text-decoration:none;
+  padding:0.6rem 0.9rem;
+  border-radius:8px;
+  font-weight:600;
+  transition:background .2s ease, transform .08s ease;
+}
+.nav-link:hover{background:rgba(255,255,255,0.08); transform:translateY(-2px)}
+
+.nav-toggle{display:none; background:transparent; border:none; color:var(--surface); font-size:1.1rem}
+
+/* Hero */
+.section{padding:4rem 0}
+.hero-grid{
+  display:grid;
+  grid-template-columns: 1fr 360px;
+  gap:2rem;
+  align-items:start;
+}
+.hero-left{background:transparent}
+.hero-title{
+  font-family:"Poppins",sans-serif;
+  font-size:2.2rem;
+  margin:0;
+  color:var(--text);
+}
+.hero-sub{color:var(--muted); margin-top:6px; font-weight:600}
+.hero-intro{margin-top:1rem; color:var(--text); opacity:0.95}
+.hero-cta{margin-top:1.2rem}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:0.6rem;
+  padding:0.6rem 1rem;
+  border-radius:10px;
+  border:0;
+  cursor:pointer;
+  font-weight:600;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.btn:active{transform:translateY(1px)}
+.btn-primary{
+  background:var(--primary);
+  color:var(--surface);
+  box-shadow:0 6px 18px rgba(108,74,182,0.18);
+}
+.btn-primary:hover{filter:brightness(1.03)}
+.btn-ghost{
+  background:transparent;
+  color:var(--surface);
+  border:1px solid rgba(255,255,255,0.06);
+  padding:0.45rem 0.6rem;
+  border-radius:8px;
+}
+
+/* Cards */
+.card{
+  background:var(--surface);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:1rem;
+  margin-bottom:1rem;
+  color:var(--text);
+}
+.contact-card .card-title,
+.profile-card .card-title{color:var(--primary); font-weight:700; margin-bottom:0.6rem}
+
+/* Lists */
+.edu-list, .exp-list, .ach-list, .skills-list{list-style:none; padding:0; margin:0}
+.edu-list li{
+  display:flex; justify-content:space-between; padding:0.6rem 0; border-bottom:1px solid rgba(0,0,0,0.04);
+}
+.edu-year{color:var(--muted); min-width:140px; font-weight:600}
+.edu-item{font-weight:600}
+
+/* Experience */
+.exp-list li{padding:0.8rem 0; border-bottom:1px dashed rgba(0,0,0,0.04)}
+.exp-list h3{margin:0 0 0.25rem 0; font-size:1rem; color:var(--text)}
+.muted{color:var(--muted); font-size:0.9rem}
+
+/* Skills / Achievements */
+.skills-list li, .ach-list li{padding:0.45rem 0}
+
+/* Contact form */
+.contact-grid{display:grid; grid-template-columns:1fr 420px; gap:2rem}
+.contact-form label{display:block; margin-top:0.6rem; font-weight:600}
+.contact-form input, .contact-form textarea{
+  width:100%; padding:0.6rem; border-radius:8px; border:1px solid rgba(32,35,58,0.08);
+  margin-top:0.4rem; background:transparent;
+  color:var(--text);
+}
+.form-actions{margin-top:0.8rem}
+.small{font-size:0.85rem}
+
+/* Footer */
+.site-footer{padding:2rem 0; border-top:1px solid rgba(0,0,0,0.04); color:var(--muted)}
+
+/* Reveal animations */
+.reveal{
+  opacity:0;
+  transform:translateY(12px);
+  transition:opacity .6s ease, transform .6s ease;
+}
+.reveal.visible{
+  opacity:1;
+  transform:none;
+}
+
+/* Accents & decorative lines */
+.section-title{
+  display:flex; align-items:center; gap:0.8rem;
+  font-family:"Poppins",sans-serif; font-size:1.2rem; margin-bottom:1rem; color:var(--text);
+}
+.section-title::after{
+  content:""; flex:1; height:6px; background:linear-gradient(90deg, var(--primary), rgba(108,74,182,0.16)); border-radius:6px; opacity:0.9; margin-left:0.8rem;
+  max-width:120px;
+}
+
+/* Responsive */
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr; }
+  .contact-grid{grid-template-columns:1fr}
+  .nav-list{display:none}
+  .nav-toggle{display:block}
+}
+
+/* Small screens */
+@media (max-width:600px){
+  .container{padding:1.2rem}
+  .brand-name{font-size:0.95rem}
+  .hero-title{font-size:1.6rem}
+}
+
+/* Links */
+a{color:var(--primary)}
+a:hover{text-decoration:underline}
+
+/* Utility */
+.muted.small{opacity:0.9}
